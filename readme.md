@@ -1,8 +1,38 @@
 # 使用cmake交叉编译lvgl在mips-/dev/fb设备上图形化
 
+![out1.gif](https://img1.imgtp.com/2023/06/01/dTHnkRrP.gif)
+
 - 目标机器
 
 ```shell
+# cat /proc/cpuinfo
+system type             : JZ4740
+processor               : 0
+cpu model               : Ingenic JZRISC V4.15
+BogoMIPS                : 335.05
+wait instruction        : yes
+microsecond timers      : no
+tlb_entries             : 32
+extra interrupt vector  : yes
+hardware watchpoint     : yes
+ASEs implemented        :
+shadow register sets    : 1
+VCED exceptions         : not available
+VCEI exceptions         : not available
+
+
+# uname -a
+Linux np1500.noah.com 2.6.24.3 #50 PREEMPT Wed Oct 28 14:59:13 CST 2009 mips unknown
+# ls /dev/fb*
+/dev/fb   /dev/fb0
+# ls /dev/input/*
+/dev/input/event0  /dev/input/mice
+
+gcc -v
+# Reading specs from /usr/lib/gcc/mipsel-linux/3.4.4/specs
+# Configured with: /var/tmp/releasetool-rpm.tmp/bank-20061023-1709/B-mipsel-linux-rpm/rpmbuild/BUILD/mipssde-6.05.00/configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --disable-gdbtk --enable-languages=c,c++ --without-x --target=mipsel-linux --host=mipsel-linux --build=mipsel-linux
+# Thread model: posix
+# gcc version 3.4.4 mipssde-6.05.00-20061023
 
 ```
 
