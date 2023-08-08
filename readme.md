@@ -115,6 +115,14 @@ telnet 192.168.1.20
 root 登录
 # 下载
 wget http://192.168.1.19:12345/lvgl_fb
+wget http://192.168.1.19:12345/lvgl_fb.o
 # 运行
 ./lvgl_fb
+
+ldd lvgl_fb.o
+    # libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x2ab00000)
+    # libm.so.6 => /lib/libm.so.6 (0x2ac3b000)
+    # libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x2acf5000)
+    # libc.so.6 => /lib/libc.so.6 (0x2ad46000)
+    # /lib/ld.so.1 (0x2aaa8000)
 ```

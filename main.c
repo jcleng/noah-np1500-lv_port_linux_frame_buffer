@@ -7,6 +7,8 @@
 #include <time.h>
 #include <sys/time.h>
 
+#include "./src/demo1.c"
+
 #define DISP_BUF_SIZE (128 * 1024)
 
 int main(void)
@@ -34,13 +36,13 @@ int main(void)
     lv_disp_drv_register(&disp_drv);
 
     evdev_init();
-    // static lv_indev_drv_t indev_drv_1;
-    // lv_indev_drv_init(&indev_drv_1); /*Basic initialization*/
-    // indev_drv_1.type = LV_INDEV_TYPE_POINTER;
+    static lv_indev_drv_t indev_drv_1;
+    lv_indev_drv_init(&indev_drv_1); /*Basic initialization*/
+    indev_drv_1.type = LV_INDEV_TYPE_POINTER;
 
-    // /*This function will be called periodically (by the library) to get the mouse position and state*/
-    // indev_drv_1.read_cb = evdev_read;
-    // lv_indev_t *mouse_indev = lv_indev_drv_register(&indev_drv_1);
+    /*This function will be called periodically (by the library) to get the mouse position and state*/
+    indev_drv_1.read_cb = evdev_read;
+    lv_indev_t *mouse_indev = lv_indev_drv_register(&indev_drv_1);
 
 
     /*Set a cursor for the mouse*/
@@ -53,10 +55,12 @@ int main(void)
     /*Create a Demo*/
     // lv_demo_widgets();
     lv_demo_benchmark();
+    // demo001();
 
     /*Handle LitlevGL tasks (tickless mode)*/
     while(1) {
         lv_timer_handler();
+        // lv_task_handler();
         // usleep(5000);
     }
 

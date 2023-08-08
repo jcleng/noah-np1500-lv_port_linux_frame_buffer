@@ -1,2 +1,5 @@
 .vscode/
 build/
+lvgl
+lv_drivers
+.xmake/
